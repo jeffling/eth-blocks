@@ -1,4 +1,5 @@
 import {
+    BigInt,
     EthereumBlock
 } from "@graphprotocol/graph-ts"
 
@@ -22,5 +23,6 @@ export function handleBlock(block: EthereumBlock): void {
     blockEntity.stateRoot = block.stateRoot.toHex();
     blockEntity.size = block.size;
     blockEntity.unclesHash = block.unclesHash.toHex();
+    blockEntity.constant = new BigInt(1);
     blockEntity.save();
   }
